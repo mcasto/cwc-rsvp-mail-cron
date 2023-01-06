@@ -23,6 +23,8 @@ const client = new ImapFlow({
 });
 
 const main = async () => {
+  const mails = [];
+
   // Wait until client connects and authorizes
   await client.connect();
 
@@ -44,9 +46,7 @@ const main = async () => {
 
       rsvp = response ? response.groups : { attending: null, reading: null };
 
-      return { date, from, body, rsvp };
-
-      // mc-todo: update rec in DB with rsvp info
+      mails.push({ date, from, rsvp });
     }
   } finally {
     lock.release();
@@ -54,6 +54,8 @@ const main = async () => {
 
   // log out and close connection
   await client.logout();
+
+  return mails;
 };
 
 module.exports = main;
