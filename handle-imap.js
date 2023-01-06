@@ -55,7 +55,7 @@ const main = async () => {
   // log out and close connection
   await client.logout();
 
-  return mails;
+  return JSON.stringify(mails);
 };
 
 module.exports = main;
