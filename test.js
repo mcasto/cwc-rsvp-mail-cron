@@ -1,3 +1,3 @@
 module.exports = () => {
-  console.log("this is a test");
+  return "this is a test";
 };
