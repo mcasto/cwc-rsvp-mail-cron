@@ -2,8 +2,9 @@ const handleImap = require("./handle-imap");
 
 var http = require("http");
 http
-  .createServer(function (req, res) {
-    res.write(handleImap());
+  .createServer(async function (req, res) {
+    const mail = await handleImap();
+    res.write(mail);
     res.end();
   })
   .listen(process.env.PORT || 3000);
