@@ -44,7 +44,7 @@ const main = async () => {
 
       rsvp = response ? response.groups : { attending: null, reading: null };
 
-      console.log({ date, from, body, rsvp });
+      return { date, from, body, rsvp };
 
       // mc-todo: update rec in DB with rsvp info
     }
@@ -56,4 +56,4 @@ const main = async () => {
   await client.logout();
 };
 
-main().catch((err) => console.error(err));
+module.exports = main;
