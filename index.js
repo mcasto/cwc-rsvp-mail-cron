@@ -1,5 +1,4 @@
 const test = require("./test.js");
-test();
 
 var http = require("http");
 http
